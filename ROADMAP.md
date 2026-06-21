@@ -43,3 +43,10 @@ The Orbit Window Manager is designed to bring a true Arch Linux (Hyprland / DWM)
 ## Phase 7: The Orbit Ecosystem
 - [ ] **OrbitLauncher:** A lightning-fast, keyboard-driven application launcher (similar to Rofi or Wofi on Linux) built natively to replace the Windows Start Menu.
 - [ ] **Custom OpenGL Shaders:** Bringing Hyprland's legendary visual effects (like windows fading, shattering, or dissolving on close) to the Windows Desktop compositor.
+- [ ] **OrbitLock:** A highly customizable, keyboard-driven lock screen replacing the standard Windows lock screen.
+- [ ] **OrbitPaper:** A lightweight background daemon to render videos, OpenGL shaders, or dynamic day/night images directly to the desktop wallpaper.
+
+## Phase 8: The "God-Tier" Arch Experience
+- [ ] **Tabbed & Stacked Tiling (i3wm style):** Allow users to stack multiple windows on top of each other within a single tile, switching between them via a sleek mini tab-bar.
+- [ ] **`orbitctl` CLI Tool:** A dedicated command-line interface allowing users to control the WM from the terminal or shell scripts (e.g., `orbitctl dispatch workspace 3` or `orbitctl killactive`).
+- [ ] **Tiling "Groups":** Group specific applications into dedicated containers that can be moved as a single cohesive unit around the layout.
