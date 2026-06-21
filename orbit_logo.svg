@@ -1,43 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <defs>
-    <!-- Catppuccin Mocha Gradient for Orbits -->
-    <linearGradient id="orbitGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#89b4fa" /> <!-- Blue -->
-      <stop offset="100%" stop-color="#cba6f7" /> <!-- Mauve -->
-    </linearGradient>
-    
-    <linearGradient id="orbitGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#a6e3a1" /> <!-- Green -->
-      <stop offset="100%" stop-color="#89b4fa" /> <!-- Blue -->
-    </linearGradient>
-
-    <!-- Drop Shadow for floating windows -->
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#11111b" flood-opacity="0.6"/>
-    </filter>
-  </defs>
-
-  <!-- Background -->
-  <rect width="512" height="512" rx="120" fill="#1e1e2e" /> <!-- Catppuccin Base -->
-
-  <!-- Outer Orbit 1 -->
-  <ellipse cx="256" cy="256" rx="200" ry="70" fill="none" stroke="url(#orbitGrad1)" stroke-width="12" transform="rotate(-35 256 256)" opacity="0.8" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Catppuccin Background -->
+  <rect width="500" height="500" rx="120" fill="#11111b" />
   
-  <!-- Outer Orbit 2 -->
-  <ellipse cx="256" cy="256" rx="200" ry="70" fill="none" stroke="url(#orbitGrad2)" stroke-width="12" transform="rotate(55 256 256)" opacity="0.8" />
+  <g transform="translate(250, 250)">
+    <!-- Base Orbit Ring -->
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#1e1e2e" stroke-width="48" />
+    
+    <!-- Blue Sweeping Arc (Top Right) -->
+    <path d="M 0 -140 A 140 140 0 0 1 140 0" fill="none" stroke="#89b4fa" stroke-width="48" stroke-linecap="round" />
+    
+    <!-- Mauve Sweeping Arc (Bottom Left) -->
+    <path d="M 0 140 A 140 140 0 0 1 -140 0" fill="none" stroke="#cba6f7" stroke-width="48" stroke-linecap="round" />
 
-  <!-- Center Abstract Tiled Windows -->
-  <g filter="url(#shadow)">
-    <!-- Master Window (Left) -->
-    <rect x="150" y="160" width="100" height="192" rx="16" fill="#89b4fa" />
-    
-    <!-- Stack Window 1 (Right Top) -->
-    <rect x="266" y="160" width="100" height="88" rx="16" fill="#cba6f7" />
-    
-    <!-- Stack Window 2 (Right Bottom) -->
-    <rect x="266" y="264" width="100" height="88" rx="16" fill="#f5c2e7" />
+    <!-- Core Floating Windows -->
+    <g transform="translate(-50, -50)">
+        <rect x="0" y="0" width="45" height="100" rx="12" fill="#a6e3a1" />
+        <rect x="55" y="0" width="45" height="45" rx="12" fill="#fab387" />
+        <rect x="55" y="55" width="45" height="45" rx="12" fill="#74c7ec" />
+    </g>
   </g>
-
-  <!-- Highlight / Glass reflection on Master Window -->
-  <path d="M 150 176 Q 150 160 166 160 L 234 160 Q 250 160 250 176 L 250 220 C 200 240 160 200 150 250 Z" fill="#ffffff" opacity="0.15" />
 </svg>
