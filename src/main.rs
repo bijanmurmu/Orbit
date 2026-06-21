@@ -12,7 +12,7 @@ use windows::Win32::UI::WindowsAndMessaging::{
     WINEVENT_OUTOFCONTEXT, WINEVENT_SKIPOWNPROCESS, GetWindowTextLengthW, GetWindowTextW,
     SetWindowPos, SystemParametersInfoW, SPI_GETWORKAREA, SPI_SETWORKAREA, SPIF_SENDCHANGE, SWP_NOACTIVATE, SWP_NOZORDER, IsWindow,
     ShowWindow, SW_RESTORE, GetWindow, GW_OWNER, WS_MAXIMIZE, WS_MINIMIZE, GetForegroundWindow, SendMessageW,
-    SetWindowLongW, HWND_TOPMOST, SWP_SHOWWINDOW, GetSystemMetrics, SM_CXSCREEN, EVENT_SYSTEM_DESKTOPSWITCH, EVENT_OBJECT_HIDE
+    SetWindowLongW, GWLP_HWNDPARENT, HWND_TOPMOST, SWP_SHOWWINDOW, GetSystemMetrics, SM_CXSCREEN, EVENT_SYSTEM_DESKTOPSWITCH, EVENT_OBJECT_HIDE
 };
 use windows::Win32::UI::Shell::{IVirtualDesktopManager, VirtualDesktopManager};
 use windows::Win32::System::Com::{CoCreateInstance, CLSCTX_INPROC_SERVER, CoInitializeEx, COINIT_MULTITHREADED};
@@ -265,6 +265,13 @@ fn is_manageable(hwnd: HWND) -> bool {
 
                     let exstyle = GetWindowLongW(hwnd, GWL_EXSTYLE) as u32;
                     let _ = SetWindowLongW(hwnd, GWL_EXSTYLE, (exstyle | WS_EX_TOOLWINDOW.0) as i32);
+                    
+                    // Detach completely from any owner window so it never minimizes with them
+                    #[cfg(target_pointer_width = "64")]
+                    unsafe { windows::Win32::UI::WindowsAndMessaging::SetWindowLongPtrW(hwnd, GWLP_HWNDPARENT, 0) };
+                    #[cfg(target_pointer_width = "32")]
+                    unsafe { SetWindowLongW(hwnd, GWLP_HWNDPARENT, 0) };
+
                     let _ = SetWindowPos(hwnd, Some(HWND_TOPMOST), 0, 0, w, h, SWP_SHOWWINDOW | SWP_NOACTIVATE);
 
                     // HARD FIX: Modify the OS Work Area directly so Chrome NEVER maximizes over us
