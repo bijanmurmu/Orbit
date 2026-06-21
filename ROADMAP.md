@@ -33,3 +33,13 @@ The Orbit Window Manager is designed to bring a true Arch Linux (Hyprland / DWM)
 - [ ] **OrbitHK (Hotkey Engine):** Implement a global keyboard hook system directly into Orbit to handle layout commands.
 - [ ] **Directional Focus:** Shortcuts to focus windows via directional keys (Win + H/J/K/L).
 - [ ] **Window Swapping:** Shortcuts to physically swap the position of two tiled windows.
+
+## Phase 6: Power-User & "End-Game" Features
+- [ ] **Drop-down Scratchpad:** A specialized floating terminal (like Quake) that toggles down from the top of the screen on a hotkey.
+- [ ] **Dynamic Gap Scaling:** Gaps automatically shrink or grow depending on how many windows are currently tiled on screen.
+- [ ] **Plugin System:** A Lua-based or WebAssembly plugin system allowing the community to write their own custom layouts and window behaviors (like AwesomeWM).
+- [ ] **Mouse & Touchpad Gestures:** 3-finger and 4-finger swipe integrations for moving between workspaces or dragging windows into floating mode.
+
+## Phase 7: The Orbit Ecosystem
+- [ ] **OrbitLauncher:** A lightning-fast, keyboard-driven application launcher (similar to Rofi or Wofi on Linux) built natively to replace the Windows Start Menu.
+- [ ] **Custom OpenGL Shaders:** Bringing Hyprland's legendary visual effects (like windows fading, shattering, or dissolving on close) to the Windows Desktop compositor.
